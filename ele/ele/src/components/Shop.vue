@@ -530,7 +530,7 @@ export default {
           height: 0
         },
         speed:1.5,//速度，默认1.2
-        vertex_Rtop:10,//运动轨迹最高点top值，默认20
+        vertex_Rtop:30,//运动轨迹最高点top值，默认20
         //结束回调函数
         onEnd: () => {
           this.cartScale = true;
