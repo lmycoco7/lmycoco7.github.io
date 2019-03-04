@@ -79,6 +79,10 @@ export default {
       console.log(d);
       return d.toLocaleString();
     },
+    jump_back() {
+      console.log("反悔了");
+      this.$router.go(-1);
+    },
     getStatus(order) {
       if (order.pay_remain_seconds == 0) {
         return "支付超时";
