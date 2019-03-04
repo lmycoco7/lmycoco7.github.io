@@ -78,7 +78,9 @@ export default {
   height: 0.5rem;
   background: #3190e8;
   text-align: center;
-  position: relative;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 .el-icon-arrow-left {
   margin-left: 0.05rem;
@@ -108,7 +110,7 @@ export default {
 }
 .hongbao_list_ul{
     padding: 0.23438rem 0.1172rem;
-
+    margin-top: 0.5rem;
 }
 .hongbao_list_li {
     background: #fff url(../../../static/img/gray.png) repeat-x;

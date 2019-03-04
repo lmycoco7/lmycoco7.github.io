@@ -272,7 +272,7 @@ export default {
 }
 .groupCity_list .list_city {
   float: left;
-  width: 24.87%;
+  width: 24.8%;
   height: 0.4rem;
   line-height: 0.4rem;
   text-align: center;

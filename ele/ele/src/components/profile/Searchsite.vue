@@ -135,7 +135,9 @@ export default {
   height: 0.5rem;
   background: #3190e8;
   text-align: center;
-  position: relative;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 .el-icon-arrow-left {
   margin-left: 0.05rem;
@@ -154,6 +156,7 @@ export default {
   left: -0.12rem;
 }
 .add-detail{
+  margin-top: 0.5rem;
   display: flex;
     -ms-flex-pack: justify;
     justify-content: space-between;

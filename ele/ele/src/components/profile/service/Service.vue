@@ -597,7 +597,9 @@ export default {
   height: 0.5rem;
   background: #3190e8;
   text-align: center;
-  position: relative;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 .el-icon-arrow-left {
   margin-left: 0.05rem;
@@ -619,6 +621,7 @@ export default {
 .service_connect {
   display: flex;
   justify-content: space-between;
+  margin-top: 0.5rem;
 }
 .service_connect a {
   -ms-flex: 1;

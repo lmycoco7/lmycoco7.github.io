@@ -106,9 +106,7 @@ export default {
     }
   },
   created() {
-    let that = this;
-    that.endtime()
-
+    
     }
 };
 </script>

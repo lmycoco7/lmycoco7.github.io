@@ -5,7 +5,7 @@
         <i class="el-icon-arrow-left"></i>
       </router-link>
       <span class="location_city">{{loc_city}}</span>
-      <span class="switch_city">切换城市</span>
+      <span class="switch_city"><router-link to="/home" class="switch_city_a">切换城市</router-link></span>
     </div>
     <div class="input_box">
       <form v-on:submit.prevent>
@@ -179,12 +179,18 @@ export default {
   width: 100%;
   height: 0.5rem;
   background: #3190e8;
+  position: fixed;
+  top: 0;
+  left: 0;
   margin-bottom: 0.1rem;
+  text-align: center;
 }
 .el-icon-arrow-left {
   margin-left: 0.05rem;
   font-size: 0.25rem;
   color: #fff;
+  line-height: 0.5rem;
+  float: left;
 }
 .city_nav span {
   line-height: 0.5rem;
@@ -192,35 +198,40 @@ export default {
 }
 .city_nav .location_city {
   font-size: 0.2rem;
+  line-height: 0.5rem;
   font-weight: 700;
-  margin-left: 1.2rem;
-  margin-top: 0.1rem;
+  text-align: center;
+ 
+}
+.switch_city_a {
+  color: #fff;
 }
 .city_nav .switch_city {
   font-size: 0.15rem;
-  margin-left: 1rem;
+  float: right;
+  margin-right: 0.05rem;
 }
 .input_box {
   width: 100%;
   background: #fff;
   border-bottom: 0.02rem solid lightgray;
+  text-align: center;
+  margin-top: 0.6rem;
 }
 .input_box input {
   width: 3.4rem;
-  height: 0.3rem;
+  line-height: 0.3rem;
   padding-left: 0.1rem;
   border: 0.01rem solid #e4e4e4;
   border-radius: 0.01rem;
-  margin-left: 0.18rem;
   margin-top: 0.1rem;
 }
 .input_box .button {
-  width: 3.4rem;
+  width: 3.5rem;
   height: 0.3rem;
   color: #fff;
   background: #3190e8;
   border-radius: 0.02rem;
-  margin-left: 0.18rem;
   margin-top: 0.1rem;
   margin-bottom: 0.1rem;
   border: 0;
