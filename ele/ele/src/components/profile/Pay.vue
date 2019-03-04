@@ -4,12 +4,12 @@
       <div @click="goBack()">
         <i class="el-icon-arrow-left"></i>
       </div>
-      <span class="title_text">会员中心</span>
+      <span class="title_text">{{mes}}</span>
     </div>
     <div class="show_time_amount">
       <div>
         <p class="time_last">支付剩余时间</p>
-        <p class="time">00:{{min}}:{{sec}}</p>
+        <p class="time">00:{{minute}}:{{second}}</p>
       </div>
     </div>
     <div class="pay_way">选择支付方式</div>
@@ -74,17 +74,20 @@ export default {
   name: "pay",
   data() {
     return {
-      min:"",
-      sec:"",
+      mes:"",
+      minutes: 15,
+      seconds: 0,
       alert1: false,
       alert2: false,
       btn: true,
       btn1: true,
     };
   },
-
+  mounted(){
+     this.add()
+  },
   methods: {
-    goBack() {
+      goBack() {
       this.$router.go(-1);
     },
     pay() {
@@ -94,19 +97,49 @@ export default {
     Confirm_pay() {
       this.alert1 = true;
     },
-    endtime(){
-      const msec = 15 * 60;
-    setTimeout(() => {
-      let min = parseInt(msec / 60 % 60 / 1000 )
-      let sec = parseInt(msec % 60 / 1000)
-      this.min = min > 9 ? min : '0' + min
-      this.sec = sec > 9 ? sec : '0' + sec
-      const that = this
-    }, 1000)
-    }
-  },
+
+
+      num: function (n) {
+        return n < 10 ? '0' + n : '' + n
+      },
+      add: function () {
+        var _this = this
+        var time = window.setInterval(function () {
+          if (_this.seconds === 0 && _this.minutes !== 0) {
+            _this.seconds = 59
+            _this.minutes -= 1
+          } else if (_this.minutes === 0 && _this.seconds === 0) {
+            _this.seconds = 0
+            window.clearInterval(time)
+          } else {
+            _this.seconds -= 1
+          }
+        }, 1000)
+      }
+    },
+    watch: {
+      second: {
+        handler (newVal) {
+          this.num(newVal)
+        }
+      },
+      minute: {
+        handler (newVal) {
+          this.num(newVal)
+        }
+      }
+    },
+    computed: {
+      second: function () {
+        return this.num(this.seconds)
+      },
+      minute: function () {
+        return this.num(this.minutes)
+      }
+    },
+
   created() {
-    
+    this.mes = this.$route.query.mes
     }
 };
 </script>

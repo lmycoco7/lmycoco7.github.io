@@ -50,7 +50,7 @@
                 <span>1个月</span>
                 <span>¥20</span>
             </div>
-            <router-link to="/pay">
+            <router-link :to="{name:'pay',query:{mes:'会员中心'}}">
                 <div class="apply_vip_buy_right">购买</div>
             </router-link>
         </div>

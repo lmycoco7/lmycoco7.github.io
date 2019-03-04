@@ -125,7 +125,10 @@
 
         <section class="confirm_order">
           <p>待支付 ￥{{totalMoney}}</p>
-          <p>确认下单</p>
+          <router-link :to="{name:'pay',query:{mes:'在线支付'}}" class="confirm_order_p">
+            <p>确认下单</p>
+            </router-link>
+          
         </section>
       </section>
 
@@ -815,10 +818,11 @@ export default {
   flex: 5;
   padding-left: 0.1641rem;
 }
-.confirm_order p:nth-of-type(2) {
+.confirm_order .confirm_order_p p {
   flex: 2;
   background-color: #56d176;
   text-align: center;
+  padding-right:0.15rem; 
 }
 .cover {
   position: fixed;

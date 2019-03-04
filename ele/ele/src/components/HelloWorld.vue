@@ -234,7 +234,7 @@ export default {
   color: #3190e8;
   height: 0.4rem;
   float: left;
-  width: 24.8%;
+  width: 24.75%;
   border-bottom: 0.01rem solid lightgrey;
   border-right: 0.01rem solid lightgrey;
   text-align: center;
@@ -272,7 +272,7 @@ export default {
 }
 .groupCity_list .list_city {
   float: left;
-  width: 24.8%;
+  width: 24.75%;
   height: 0.4rem;
   line-height: 0.4rem;
   text-align: center;

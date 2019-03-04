@@ -8,13 +8,13 @@
     </div>
     <div class="setname">
       <div class="setname-top">
-        <input type="text" placeholder="输入用户名" class="setname_inp" id="setname_inpt" @keyup="changeInp()">
+        <input type="text" placeholder="输入用户名" class="setname_inp" id="setname_inpt" @keyup="changeInp()" v-model="changeName">
         <div>
           <p :v-if="show" id="u">用户名只能修改一次（5-24字符之间）</p>
         </div>
       </div>
       <div class="reset">
-        <button id="resetbtn" @click="changeName()">确认修改</button>
+        <button id="resetbtn" @click="change()">确认修改</button>
       </div>
     </div>
   </div>
@@ -24,6 +24,7 @@ export default {
   name: "changename1",
   data() {
     return {
+      changeName:"",
       show: true
     };
   },
@@ -54,13 +55,16 @@ export default {
         }
       
     },
-    changeName(){
+    change(){
       this.$http({
         url:"https://elm.cangdu.org/v1/user",
-        method:"get"
+        method:"get",
+        data:{
+          changeName:this.changename,
+        }
       }).then(res => {
         console.log(res);
-      
+        
       })
     }
 

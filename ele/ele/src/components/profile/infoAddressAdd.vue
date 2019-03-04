@@ -61,7 +61,24 @@ export default {
       
     },
     add() {
-      
+      let api = "https://elm.cangdu.org/v1/users/:user_id/addresses"
+      this.$http({
+        type:"post",
+        url:api,
+        data:{
+          userName:this.username,
+          Address:this.address,
+          detailAddress:this.detail_address,
+          Phone:this.phone,
+          sparePhone:this.spare_phone,
+          geohash:"34.74283,113.63914",
+          user_id:23097,
+          Phone:this.phone,
+        }
+      }).then(res => {
+        console.log(res,res.data.username);
+
+      })
     }
   }
 };
