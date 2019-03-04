@@ -147,20 +147,22 @@ export default {
   padding-top: 0.457rem;
 }
 .order_list_li {
+  widows: 100%;
   background-color: #fff;
   display: flex;
   margin-bottom: 0.1172rem;
   padding: 0.141rem 0.141rem 0;
 }
 .restaurant_image {
-  width: 0.4688rem;
-  height: 0.4688rem;
-  margin-right: 0.094rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-left: -0.07rem;
+  margin-right: 0.15rem;
 }
 .order_item_right {
   flex: 4;
   position: relative;
-  left: -0.09rem;
+  left: -0.05rem;
 }
 .order_item_right_header {
   border-bottom: 0.0058rem solid #f5f5f5;

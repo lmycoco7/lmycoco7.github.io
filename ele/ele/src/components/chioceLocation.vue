@@ -5,7 +5,11 @@
       <h2>选择地址</h2>
     </div>
     <ul>
-      <li @click="enter_address(mes.name, mes.phone, mes.address, mes.tag, mes.sex)" v-for="(mes, index) in address_mes" :key="index">
+      <li
+        @click="enter_address(mes.name, mes.phone, mes.address, mes.tag, mes.sex)"
+        v-for="(mes, index) in address_mes"
+        :key="index"
+      >
         <div class="logo">
           <i class="el-icon-circle-check"></i>
         </div>
@@ -33,43 +37,29 @@ export default {
   name: "chioceLocation",
   data() {
     return {
-      address_mes: "",
-      b1: "",
-      b2: "",
-      b3: "",
-      b4: ""
+      address_mes: ""
     };
   },
   created() {
     console.log(this.$route);
-    this.b1 = this.$route.query.a1;
-    this.b2 = this.$route.query.a2;
-    this.b3 = this.$route.query.a3;
-    this.b4 = this.$route.query.a4;
     this.request();
   },
   methods: {
-    enter_address(a, b , c, d, e) {
+    enter_address(a, b, c, d, e) {
       console.log(a, b, c, d, e);
-      this.$router.push({name: "ConfirmOrder", query: {
-        names: a,
-        phones: b,
-        sites: c,
-        tags: d,
-        sexs: e,
-        c1: this.b1,
-        c2: this.b2,
-        c3: this.b3,
-        c4: this.b4
-      }})
+      this.$router.push({
+        name: "ConfirmOrder",
+        query: {
+          names: a,
+          phones: b,
+          sites: c,
+          tags: d,
+          sexs: e
+        }
+      });
     },
     go_back() {
-      this.$router.push({name: "ConfirmOrder", query: {
-        c1: this.b1,
-        c2: this.b2,
-        c3: this.b3,
-        c4: this.b4
-      }})
+      this.$router.push({ name: "ConfirmOrder" });
     },
     jump_add() {
       this.$router.push({ name: "addAddress" });

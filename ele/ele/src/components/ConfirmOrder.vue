@@ -7,8 +7,10 @@
             <img @click="go_back()" src="../../static/img/返回.png" alt>
           </section>
           <a class="head_login">
-            <span class="login_span" v-if="!isLogin" @click="login">登录|注册</span>
-            <i @click="gotoProfile" v-else>{{userID}}</i>
+            <router-link v-if="isLogin" to="/Profile">
+              <span class="iconfont one_s">&#xe600;</span>
+            </router-link>
+            <span class="login_span" v-else @click="login">登录 | 注册</span>
           </a>
           <section class="title_head ellipsis">
             <span class="title_text">确认订单</span>
@@ -125,10 +127,9 @@
 
         <section class="confirm_order">
           <p>待支付 ￥{{totalMoney}}</p>
-          <router-link :to="{name:'pay',query:{mes:'在线支付'}}" class="confirm_order_p">
+          <router-link :to="{name:'pay',query:{mes:'在线支付', num: 1}}" class="confirm_order_p">
             <p>确认下单</p>
-            </router-link>
-          
+          </router-link>
         </section>
       </section>
 
@@ -264,19 +265,28 @@ export default {
     this.address = this.$route.query.sites;
     this.tag = this.$route.query.tags;
     this.sex = this.$route.query.sexs;
+
     if (this.sex == 2) {
       this.sex_show = false;
     }
-    console.log(this.name);
 
     if (localStorage.getItem("isLogin")) {
       this.isLogin = true;
     }
-    console.log(this.$route);
     if (this.$route.query.selected_kind) {
       this.listDetail = this.$route.query.selected_kind;
+      console.log(this.listDetail);
+      localStorage.setItem("listDetail", JSON.stringify(this.listDetail));
+      let arr = JSON.parse(localStorage.getItem("listDetail"));
+      console.log(arr);
       this.shopInfo = this.$route.query.shopDetail;
+      console.log(this.shopInfo);
+      localStorage.setItem("shopInfo", JSON.stringify(this.shopInfo));
+      let arr1 = JSON.parse(localStorage.getItem("shopInfo"));
+      console.log(arr1);
       this.finalFoodNum = this.$route.query.finalFoodNum;
+      localStorage.finalFoodNum = this.$route.query.finalFoodNum;
+
       for (let i = 0; i < this.finalFoodNum.length; i++) {
         if (this.finalFoodNum[i]) {
           this.numContainer.push(this.finalFoodNum[i]);
@@ -290,25 +300,12 @@ export default {
       // console.log(foodTotalMoney);
       this.totalMoney =
         foodTotalMoney + 24149.5 + this.shopInfo.float_delivery_fee;
+      localStorage.totalMoney = this.totalMoney;
     } else {
-      this.listDetail = this.$route.query.c1;
-      this.shopInfo = this.$route.query.c2;
-      this.finalFoodNum = this.$route.query.c3;
-      this.totalMoney = this.$route.query.c4;
-      this.sex = this.$route.query.c5;
-      for (let i = 0; i < this.finalFoodNum.length; i++) {
-        if (this.finalFoodNum[i]) {
-          this.numContainer.push(this.finalFoodNum[i]);
-        }
-      }
-      let foodTotalMoney = 0;
-      for (let i = 0; i < this.listDetail.length; i++) {
-        foodTotalMoney +=
-          parseInt(this.listDetail[i].price) * parseInt(this.numContainer[i]);
-      }
-      // console.log(foodTotalMoney);
-      this.totalMoney =
-        foodTotalMoney + 24149.5 + this.shopInfo.float_delivery_fee;
+      this.totalMoney = localStorage.totalMoney;
+      this.shopInfo = JSON.parse(localStorage.getItem("shopInfo"));
+      this.listDetail = JSON.parse(localStorage.getItem("listDetail"));
+      this.finalFoodNum = localStorage.finalFoodNum;
     }
   },
 
@@ -318,13 +315,7 @@ export default {
     },
     choice() {
       this.$router.push({
-        name: "chioceLocation",
-        query: {
-          a1: this.listDetail,
-          a2: this.shopInfo,
-          a3: this.finalFoodNum,
-          a4: this.totalMoney
-        }
+        name: "chioceLocation"
       });
     },
     gotoProfile() {
@@ -433,6 +424,9 @@ export default {
 </script>
 
 <style scoped>
+.one_s {
+  color: #fff;
+}
 @keyframes tipMove {
   0% {
     transform: scale(1);
@@ -822,7 +816,7 @@ export default {
   flex: 2;
   background-color: #56d176;
   text-align: center;
-  padding-right:0.15rem; 
+  padding-right: 0.15rem;
 }
 .cover {
   position: fixed;

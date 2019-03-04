@@ -59,13 +59,13 @@
     </div>
 
     <div class="alert_container" v-show="alert2">
-      <section class="tip_text_container">
+      <div class="tip_text_container">
         <div class="tip_icon">
           <img src="../../../static/img/1.png" alt>
         </div>
         <p class="tip_text">支付超时</p>
-        <div class="confirm" @click="alert1=!alert1">确认</div>
-      </section>
+        <div class="confirm" @click="jump_list()">确认</div>
+      </div>
     </div>
   </div>
 </template>
@@ -74,20 +74,26 @@ export default {
   name: "pay",
   data() {
     return {
-      mes:"",
+      mes: "",
       minutes: 15,
       seconds: 0,
       alert1: false,
       alert2: false,
       btn: true,
-      btn1: true,
+      btn1: true
     };
   },
-  mounted(){
-     this.add()
+  mounted() {
+    this.add();
   },
   methods: {
-      goBack() {
+    jump_list() {
+      console.log("ni");
+      // if (this.$route.query.num) {
+      this.$router.push({ name: "Order" });
+      // }
+    },
+    goBack() {
       this.$router.go(-1);
     },
     pay() {
@@ -96,51 +102,56 @@ export default {
     },
     Confirm_pay() {
       this.alert1 = true;
+      if (this.alert1 == true) {
+        let _this = this;
+        setTimeout(function() {
+          _this.jump_list();
+        }, 1200);
+      }
     },
 
-
-      num: function (n) {
-        return n < 10 ? '0' + n : '' + n
-      },
-      add: function () {
-        var _this = this
-        var time = window.setInterval(function () {
-          if (_this.seconds === 0 && _this.minutes !== 0) {
-            _this.seconds = 59
-            _this.minutes -= 1
-          } else if (_this.minutes === 0 && _this.seconds === 0) {
-            _this.seconds = 0
-            window.clearInterval(time)
-          } else {
-            _this.seconds -= 1
-          }
-        }, 1000)
-      }
+    num: function(n) {
+      return n < 10 ? "0" + n : "" + n;
     },
-    watch: {
-      second: {
-        handler (newVal) {
-          this.num(newVal)
+    add: function() {
+      var _this = this;
+      var time = window.setInterval(function() {
+        if (_this.seconds === 0 && _this.minutes !== 0) {
+          _this.seconds = 59;
+          _this.minutes -= 1;
+        } else if (_this.minutes === 0 && _this.seconds === 0) {
+          _this.seconds = 0;
+          window.clearInterval(time);
+        } else {
+          _this.seconds -= 1;
         }
-      },
-      minute: {
-        handler (newVal) {
-          this.num(newVal)
-        }
+      }, 1000);
+    }
+  },
+  watch: {
+    second: {
+      handler(newVal) {
+        this.num(newVal);
       }
     },
-    computed: {
-      second: function () {
-        return this.num(this.seconds)
-      },
-      minute: function () {
-        return this.num(this.minutes)
+    minute: {
+      handler(newVal) {
+        this.num(newVal);
       }
+    }
+  },
+  computed: {
+    second: function() {
+      return this.num(this.seconds);
     },
+    minute: function() {
+      return this.num(this.minutes);
+    }
+  },
 
   created() {
-    this.mes = this.$route.query.mes
-    }
+    this.mes = this.$route.query.mes;
+  }
 };
 </script>
 <style scoped>
