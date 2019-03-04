@@ -5,21 +5,21 @@
       <ul>
         <router-link :to="takeoutLink">
           <li>
-            <span class="iconfont">&#xe603;</span>
+            <span class="iconfont">&#xe60b;</span>
             <br>
             <span class="word">外卖</span>
           </li>
         </router-link>
         <router-link :to="searchLink">
           <li>
-            <span class="iconfont">&#xe606;</span>
+            <span class="iconfont">&#xe786;</span>
             <br>
             <span class="word">搜索</span>
           </li>
         </router-link>
         <router-link to="/order">
           <li>
-            <span class="iconfont">&#xe503;</span>
+            <span class="iconfont">&#xe603;</span>
             <br>
             <span class="word">订单</span>
           </li>
@@ -83,5 +83,4 @@ export default {
   font-size: 0.23rem;
   color: #666;
 }
-
 </style>
