@@ -521,7 +521,7 @@ export default {
       flyer.fly({
         start: {
           left: e.pageX,
-          top: e.pageY
+          top: 1.15*e.pageY
         },
         end: {
           left: offset.left,
