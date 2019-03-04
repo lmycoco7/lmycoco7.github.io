@@ -132,93 +132,91 @@
       <transition name="maskBottom">
         <div class="cover" v-if="showCover" @click="changeType"></div>
       </transition>
-      
+
       <transition name="fromBottom">
         <div class="choose_type_container" v-if="showType">
-        <header>支付方式</header>
-        <ul>
-          <li>
-            <span>
-              '货到付款'
-              <span>(商家不支持货到付款)</span>
-            </span>
-            <img src="../../static/img/灰色对号.png" alt>
-          </li>
-          <li class="choose">
-            <span>在线支付</span>
-            <img src="../../static/img/绿色对号.png" @click="changeType">
-          </li>
-        </ul>
-      </div>
+          <header>支付方式</header>
+          <ul>
+            <li>
+              <span>
+                '货到付款'
+                <span>(商家不支持货到付款)</span>
+              </span>
+              <img src="../../static/img/灰色对号.png" alt>
+            </li>
+            <li class="choose">
+              <span>在线支付</span>
+              <img src="../../static/img/绿色对号.png" @click="changeType">
+            </li>
+          </ul>
+        </div>
       </transition>
-      
     </div>
     <transition name="fromRight">
-        <div class="rating_page" v-if="show_invoice">
+      <div class="rating_page" v-if="show_invoice">
         <section>
-        <header id="head_top">
-          <section class="head_goback">
-            <img src="../../static/img/返回.png" @click="showInvoice">
+          <header id="head_top">
+            <section class="head_goback">
+              <img src="../../static/img/返回.png" @click="showInvoice">
+            </section>
+            <section class="title_head ellipsis">
+              <span class="title_text">选择发票抬头</span>
+            </section>
+          </header>
+          <section class="choose_invoice">
+            <span>不需要开发票</span>
+            <img src="../../static/img/灰色对号.png" v-if="showImg" @click="changeImg">
+            <img src="../../static/img/绿色对号.png" v-else @click="changeImg">
           </section>
-          <section class="title_head ellipsis">
-            <span class="title_text">选择发票抬头</span>
-          </section>
-        </header>
-        <section class="choose_invoice">
-          <span>不需要开发票</span>
-          <img src="../../static/img/灰色对号.png" v-if="showImg" @click="changeImg">
-          <img src="../../static/img/绿色对号.png" v-else @click="changeImg">
+          <div class="determine" @click="showInvoice">确定</div>
         </section>
-        <div class="determine" @click="showInvoice">确定</div>
-        </section>
-        </div>
+      </div>
     </transition>
     <transition name="fromRight">
       <div class="rating_page" v-if="showRemark">
-      <section>
-        <header id="head_top">
-          <section class="head_goback" @click="backOrder()">
-            <img src="../../static/img/返回.png" alt>
+        <section>
+          <header id="head_top">
+            <section class="head_goback" @click="backOrder()">
+              <img src="../../static/img/返回.png" alt>
+            </section>
+            <section class="title_head ellipsis">
+              <span class="title_text">订单备注</span>
+            </section>
+          </header>
+          <section class="quick_remark">
+            <header class="header_style">快速备注</header>
+            <ul class="remark_arr_list_ul">
+              <li class="remark_arr_list_li">
+                <span class="remark_item_li first spicy" @click="changeSpicy(0)">不要辣</span>
+                <span class="remark_item_li spicy" @click="changeSpicy(1)">少点辣</span>
+                <span class="remark_item_li last spicy" @click="changeSpicy(2)">多点辣</span>
+              </li>
+              <li class="remark_arr_list_li">
+                <span class="remark_item_Li first last coriander" @click="changeCoriander()">不要香菜</span>
+              </li>
+              <li class="remark_arr_list_li">
+                <span class="remark_item_Li first last onion" @click="changeOnion()">不要洋葱</span>
+              </li>
+              <li class="remark_arr_list_li">
+                <span class="remark_item_Li first last vinegar" @click="changeVinegar()">多点醋</span>
+              </li>
+              <li class="remark_arr_list_li">
+                <span class="remark_item_Li first last shallot" @click="changeShallot()">多点葱</span>
+              </li>
+              <li class="remark_arr_list_li">
+                <span class="remark_item_Li first ice" @click="changeIce(0)">去冰</span>
+                <span class="remark_item_Li last ice" @click="changeIce(1)">少冰</span>
+              </li>
+            </ul>
           </section>
-          <section class="title_head ellipsis">
-            <span class="title_text">订单备注</span>
+          <section class="input_remark quick_remark">
+            <header class="header_style">其他备注</header>
+            <textarea placeholder="请输入备注内容（可不填）" class="input_text" v-model="textVal"></textarea>
           </section>
-        </header>
-        <section class="quick_remark">
-          <header class="header_style">快速备注</header>
-          <ul class="remark_arr_list_ul">
-            <li class="remark_arr_list_li">
-              <span class="remark_item_li first spicy" @click="changeSpicy(0)">不要辣</span>
-              <span class="remark_item_li spicy" @click="changeSpicy(1)">少点辣</span>
-              <span class="remark_item_li last spicy" @click="changeSpicy(2)">多点辣</span>
-            </li>
-            <li class="remark_arr_list_li">
-              <span class="remark_item_Li first last coriander" @click="changeCoriander()">不要香菜</span>
-            </li>
-            <li class="remark_arr_list_li">
-              <span class="remark_item_Li first last onion" @click="changeOnion()">不要洋葱</span>
-            </li>
-            <li class="remark_arr_list_li">
-              <span class="remark_item_Li first last vinegar" @click="changeVinegar()">多点醋</span>
-            </li>
-            <li class="remark_arr_list_li">
-              <span class="remark_item_Li first last shallot" @click="changeShallot()">多点葱</span>
-            </li>
-            <li class="remark_arr_list_li">
-              <span class="remark_item_Li first ice" @click="changeIce(0)">去冰</span>
-              <span class="remark_item_Li last ice" @click="changeIce(1)">少冰</span>
-            </li>
-          </ul>
+          <div class="determine" @click="sumbit">确定</div>
         </section>
-        <section class="input_remark quick_remark">
-          <header class="header_style">其他备注</header>
-          <textarea placeholder="请输入备注内容（可不填）" class="input_text" v-model="textVal"></textarea>
-        </section>
-        <div class="determine" @click="sumbit">确定</div>
-      </section>
-    </div>
+      </div>
     </transition>
-    
   </div>
 </template>
 
@@ -253,7 +251,7 @@ export default {
       showType: false,
       showRemark: false,
       show_invoice: false,
-      showImg:false
+      showImg: false
     };
   },
   created() {
@@ -313,7 +311,7 @@ export default {
 
   methods: {
     go_back() {
-      this.$router.push();
+      this.$router.push({ name: "Shop", query: { id: this.shopInfo.id } });
     },
     choice() {
       this.$router.push({
@@ -447,45 +445,45 @@ export default {
   }
 }
 @keyframes fromBottom {
-  0%{
-    transform: translateY(3rem)
+  0% {
+    transform: translateY(3rem);
   }
-  100%{
-    transform: translateY(0)
+  100% {
+    transform: translateY(0);
   }
 }
-.fromBottom-enter-active{
-  animation: fromBottom 1s ;
+.fromBottom-enter-active {
+  animation: fromBottom 1s;
 }
-.fromBottom-leave-active{
+.fromBottom-leave-active {
   animation: fromBottom 0.5s reverse;
 }
 @keyframes maskBottom {
-  0%{
-     opacity: 0;
+  0% {
+    opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
-.maskBottom-enter-active{
-  animation: maskBottom 1s ;
+.maskBottom-enter-active {
+  animation: maskBottom 1s;
 }
-.maskBottom-leave-active{
+.maskBottom-leave-active {
   animation: maskBottom 0.5s reverse;
 }
 @keyframes fromRight {
-  0%{
-    transform: translateX(1rem)
+  0% {
+    transform: translateX(1rem);
   }
-  100%{
-    transform: translateX(0)
+  100% {
+    transform: translateX(0);
   }
 }
-.fromRight-enter-active{
+.fromRight-enter-active {
   animation: fromRight 0.2s ease-out;
 }
-.fromRight-leave-active{
+.fromRight-leave-active {
   animation: fromRight 0.2s reverse ease-in;
 }
 .head_login {
