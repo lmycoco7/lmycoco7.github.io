@@ -516,7 +516,7 @@ export default {
     jumpImg(e) {
       let offset = $(".cart_icon").offset();
       let flyer = $(
-        '<img width="20px" height="20px" src="../../static/img/加.png" />'
+        '<div  style="width:0.2rem;height:0.2rem;border-radius: 50%;z-index:998;background-color: #3190e8;"></div>'
       );
       flyer.fly({
         start: {
