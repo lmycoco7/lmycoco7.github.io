@@ -2,7 +2,7 @@
   <div>
     <div class="order_page">
       <header id="head_top">
-        <section class="head_goback">
+        <section class="head_goback" @click="goBack()">
           <img src="../../static/img/返回.png">
         </section>
         <section class="title_head ellipsis">
@@ -73,6 +73,9 @@ export default {
     }
   },
   methods: {
+    goBack() {
+      this.$router.go(-1);
+    },
     getOrderTime(order) {
       let d = new Date();
       d.setTime(order.order_time);
