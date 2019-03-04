@@ -121,8 +121,7 @@
             </svg>
           </use>
         </svg>
-        <div class="myOrderA_div">
-          <span>我的订单</span>
+          <span class="myOrderA_div">我的订单</span>
           <span  class="myorderA-divsvg">
             <svg  fill="#bbb">
               <use
@@ -132,7 +131,6 @@
               ></use>
             </svg>
           </span>
-        </div>
       </router-link>
       <router-link to="/integralmall" class="myOrderB">
         <svg  fill="#fc7b53">
@@ -144,8 +142,7 @@
             </svg>
           </use>
         </svg>
-        <div class="myOrderB_div">
-          <span>积分商城</span>
+          <span  class="myOrderB_div">积分商城</span>
           <span  class="myorderA-divsvg">
             <svg  fill="#bbb">
               <use
@@ -155,7 +152,7 @@
               ></use>
             </svg>
           </span>
-        </div>
+
       </router-link>
       <router-link to="/member" class="myOrderC">
         <svg  fill="#ffc636">
@@ -173,8 +170,7 @@
           </use>
         </svg>
 
-        <div class="myOrderC_div">
-          <span>饿了么会员卡</span>
+          <span class="myOrderC_div">饿了么会员卡</span>
           <span  class="myorderA-divsvg">
             <svg  fill="#bbb">
               <use
@@ -184,7 +180,6 @@
               ></use>
             </svg>
           </span>
-        </div>
       </router-link>
     </div>
 
@@ -211,8 +206,7 @@
             </svg>
           </use>
         </svg>
-        <div class="myOrder1_div">
-          <span>服务中心</span>
+          <span class="myOrder1_div">服务中心</span>
           <span  class="myorderA-divsvg">
             <svg  fill="#bbb">
               <use
@@ -222,7 +216,6 @@
               ></use>
             </svg>
           </span>
-        </div>
       </router-link>
       <router-link to="/download" class="myOrder2">
         <svg  fill="#3cabff">
@@ -234,8 +227,7 @@
             </svg>
           </use>
         </svg>
-        <div class="myOrder2_div">
-          <span>下载饿了么App</span>
+          <span class="myOrder2_div">下载饿了么App</span>
           <span  class="myorderA-divsvg">
             <svg  fill="#bbb">
               <use
@@ -245,7 +237,6 @@
               ></use>
             </svg>
           </span>
-        </div>
       </router-link>
     </div>
   </div>
@@ -436,7 +427,6 @@ svg:not(:root) {
 .myOrder2_div {
   display: inline-block;
   color: #333;
-  width: 94%;
 }
 .myorderA-divsvg,
 .myorderB-divsvg,
