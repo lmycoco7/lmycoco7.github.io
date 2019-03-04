@@ -224,7 +224,7 @@
           </span>
         </div>
       </router-link>
-      <router-link to="/down" class="myOrder2">
+      <router-link to="/download" class="myOrder2">
         <svg  fill="#3cabff">
           <use  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#download">
             <svg viewBox="0 0 40 40" id="download" width="100%" height="100%">
