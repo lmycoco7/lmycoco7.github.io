@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/*游戏地图 canvas*/
+#map {
+    display: block;
+}
+/*加载 loading*/
+#loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+/*当前分数*/
+#current_score {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/*结束菜单*/
+#menu {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c2c8c9;
+    list-style-type: none;
+    width: 160px;
+    height: 160px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+    display: none;
+}
+/*最终分数*/
+#end_score {
+    line-height: 80px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+/*再来一局*/
+#restart {
+    /*鼠标样式*/
+    cursor: pointer;
+    /*不允许用户选择当前区域*/
+    user-select: none;
+}
