@@ -101,6 +101,9 @@ var background = {
 }
 
 
+/*
+ * 英雄
+ */
 // 英雄图片
 var heroImg = new Image();
 heroImg.src = 'img/herofly.png';
@@ -111,7 +114,10 @@ var bulletImg2 = new Image();
 bulletImg2.src = 'img/bullet2.png';
 
 // 英雄对象
-var hero = {    
+var hero = {
+    /*
+     * 属性
+     */
     // 飞机的位置
     x: mapCanvas.width / 2 - 33,
     y: mapCanvas.height - 82 - 100,
