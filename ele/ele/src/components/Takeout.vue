@@ -160,7 +160,8 @@ export default {
         pagination: {
           el: ".swiper-pagination",
           type: "bullets"
-        }
+        },
+        loop:true,
       }
     };
   },
