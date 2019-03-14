@@ -603,6 +603,10 @@ restartLi.onclick = function () {
     //			location.href = location.href + "?id=" + 10000 * Math.random();
 }
 
+
+
+
+
 // 开始游戏
 function main() {
     // 清除画布
