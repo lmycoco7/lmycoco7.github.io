@@ -1,0 +1,130 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ul,li{
+    list-style: none;
+}
+img{
+    vertical-align: top;
+}
+
+
+#game{
+    width: 343px;
+    height: 480px;
+    margin: 30px auto 0;  
+    background: url(img/bg.jpg);
+    position: relative;
+    /* overflow: hidden; */
+}
+
+#head{
+    width: 236px;
+    height: 77px;
+    background: url(img/head.jpg) no-repeat;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    margin-left: -118px;
+}
+#head img{
+    position: absolute;
+    right: 0;
+    top: 0;
+    animation: flyBird 1.7s linear 0.5s infinite ;
+}
+@keyframes flyBird{
+    from{
+        top:0;
+    }
+    
+    50%{
+        top:75%;
+    }
+
+    to{
+        top:0;
+    }
+}
+
+#startMenu{
+    position: relative ;
+    top: 280px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 1;
+}
+#startMenu img{
+    cursor: pointer;
+}
+
+#endMenu{
+    width: 269px;
+    height: 135px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -68px;
+    margin-left: -135px;
+    background: url(img/message.jpg);
+    display: none;
+    z-index: 998;
+}
+#currentScore{
+    position: absolute;
+    right:30px ;
+    top: 32px;
+    font-size: 30px;
+}
+#bestScore{
+    position: absolute;
+    right:30px ;
+    top:84px ;
+    font-size: 30px;
+}
+#bird{
+    position: absolute;
+    bottom:187px;
+    left: 62px;
+    display: none;
+}
+#score{
+    width:100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    display: none;
+}
+
+#pipeUL{
+    height: 423px;
+    position: relative;
+    margin-top:-30px;
+}
+.pipe{
+    width: 62px;
+    height: 423px;
+    position: absolute;
+    top: 0;
+   
+}
+
+.pipe_top{
+    position: absolute;
+    height: 100px;
+    width: 62px;
+    top: 0;
+    background: url(img/up_pipe.png)  bottom no-repeat , url(img/up_mod.png) repeat-y; 
+}
+
+.pipe_bottom {
+    width: 62px;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    background: url(img/down_pipe.png) top no-repeat, url(img/down_mod.png) repeat-y;
+}
+
